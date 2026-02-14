@@ -1,0 +1,160 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(-45deg, #ff0066, #ff4e8a, #ff99c8, #8ec5fc);
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Animated Background */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Intro Screen */
+.intro {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #ff0066, #8ec5fc);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    text-align: center;
+    z-index: 5;
+    cursor: pointer;
+    transition: opacity 0.8s ease;
+}
+
+.intro h1 {
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+/* Floating Hearts */
+.hearts {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.heart {
+    position: absolute;
+    bottom: -50px;
+    animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-110vh);
+        opacity: 0;
+    }
+}
+
+/* Floating Blue Penguin */
+.penguin {
+    position: fixed;
+    font-size: 60px;
+    bottom: -100px;
+    left: 5%;
+    animation: penguinFloat 18s linear infinite;
+    z-index: 3;
+    filter: hue-rotate(200deg) saturate(3);
+}
+
+@keyframes penguinFloat {
+    0% {
+        transform: translateX(0) translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateX(250px) translateY(-200px) rotate(10deg);
+    }
+    50% {
+        transform: translateX(500px) translateY(-400px) rotate(-10deg);
+    }
+    75% {
+        transform: translateX(250px) translateY(-650px) rotate(10deg);
+    }
+    100% {
+        transform: translateX(0) translateY(-900px) rotate(0deg);
+    }
+}
+
+/* Card Design */
+.wrapper {
+    z-index: 2;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(25px);
+    padding: 50px;
+    border-radius: 30px;
+    text-align: center;
+    width: 600px;
+    color: white;
+    box-shadow: 0 0 80px rgba(255, 0, 100, 0.6);
+    animation: fadeIn 2s ease-in-out;
+}
+
+.glow {
+    font-size: 42px;
+    text-shadow: 0 0 20px #fff, 0 0 40px #ff4e8a;
+}
+
+.card h2 {
+    margin: 15px 0;
+    font-weight: 300;
+}
+
+#typewriter {
+    margin: 25px 0;
+    min-height: 90px;
+    line-height: 1.6;
+    font-size: 17px;
+}
+
+button {
+    background: linear-gradient(45deg, #ff0066, #ff4e8a);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 40px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px #ff0066;
+}
+
+#hiddenMessage {
+    margin-top: 25px;
+    display: none;
+    font-size: 18px;
+    opacity: 0;
+}
+
+/* Fade Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
