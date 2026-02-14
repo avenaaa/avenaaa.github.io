@@ -1,47 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Museo ng Republika ng 1899</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <title>For My Darling Abi ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
-    <div class="banner">
-        <div class="navbar">
-            <img src="shplogo1.png" class="logo">
-                <ul>
-                    <li><a href="Church.html">Barasoain Church</a></li>
-                    <li><a href="Museo.html">Museo ng republika</a></li>
-                    <li><a href="https://www.facebook.com/nhcp.barasoainmuseum">Facebook Page</a></li>
-                    <li><a href="About.html">About</a></li>
-                </ul>
-    </div>
 
-    <div class="content">
-        <h1>BARASOAIN CHURCH<br>MUSEO NG REPUBLIKA NG 1899</h1>
-        <h2>CULTRUAL HERITAGE PROMOTIONAL WEBSITE<br>SUBMITTED TO: MRS. MYSEL D. LALUNA<br>READING IN THE PHILIPPINE HISTORY</h2>
-        <div>
-            <button type="button" onclick="funcc()"><span></span>BARASOAIN CHURCH</button>
-            <button type="button" onclick="func()"><span></span>MUSEO NG REPUBLIKA</button>
+<!-- Floating Hearts -->
+<div class="hearts"></div>
+
+<!-- Floating Blue Penguin -->
+<div class="penguin">🐧</div>
+
+<!-- Intro Overlay -->
+<div class="intro">
+    <h1>For My Darling Abi 💖</h1>
+    <p>Click anywhere to enter my heart...</p>
+</div>
+
+<!-- Main Content -->
+<div class="wrapper">
+    <div class="card">
+        <h1 class="glow">Happy Valentine's Day, Bebe ❤️</h1>
+        <h2>My Darling, My Abi</h2>
+
+        <p id="typewriter"></p>
+
+        <button onclick="reveal()">Open My Heart 💌</button>
+
+        <div id="hiddenMessage">
+            You are my answered prayer,
+            my comfort, my happiness, and my safe place.
+            I will always choose you over and over again.
         </div>
-    </div>
-<div>
-    <script>
-        function funcc(){
-                window.location.assign("Church.html")
-        }
-        function func(){
-                window.location.assign("Museo.html")
-        }
-    </script>
-
     </div>
 </div>
 
+<script>
+
+/* Intro Click to Start */
+const intro = document.querySelector(".intro");
+intro.addEventListener("click", () => {
+    intro.style.opacity = "0";
+    setTimeout(() => {
+        intro.style.display = "none";
+    }, 800);
+});
+
+/* Floating Hearts Generator */
+const heartsContainer = document.querySelector(".hearts");
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerText = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+    heart.style.animationDuration = (Math.random() * 5 + 5) + "s";
+    heartsContainer.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 10000);
+}
+setInterval(createHeart, 500);
+
+/* Typewriter Effect */
+const message = "Hi bebe, before this day ends, I just want to greet you a Happy Heart's Day. It's been a year since we first talked, and it's been a year since God answered my prayer through you. I miss you so much, darling.";
+let i = 0;
+function typing() {
+    if (i < message.length) {
+        document.getElementById("typewriter").innerHTML += message.charAt(i);
+        i++;
+        setTimeout(typing, 35);
+    }
+}
+typing();
+
+/* Reveal Hidden Message */
+function reveal() {
+    const msg = document.getElementById("hiddenMessage");
+    msg.style.display = "block";
+    msg.style.animation = "fadeIn 1.5s ease forwards";
+}
+
+</script>
+
 </body>
-
-<footer>
-    <h1>&copy; 2024 Museo ng Republika ng 1899 | All Rights Reserved</h1>
-</footer>
-
 </html>
